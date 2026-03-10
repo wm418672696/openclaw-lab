@@ -48,13 +48,18 @@ brew cleanup
 echo "✅ Homebrew 缓存初步清理完成"
 
 # 4. 安装常用开发工具(Formula)
-echo -e "\n📥 第五步: 安装常用开发工具(Formula)..."
-echo -e "   - 安装 OpenClaw..."
-brew install openclaw-cli || true
+echo -e "\n📥 第四步: 安装常用开发工具(Formula)..."
+echo -e "   - 安装 fnm..."
+brew install fnm || true
+echo -e "\n🔧 配置 fnm 环境变量..."
+echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshrc
 echo "✅ 开发工具(Formula)安装完成"
+# 配置 fnm 环境变量. 
 
 # 5. 安装常用开发工具(Cask 应用, 移除 VS Code)
 echo -e "\n📥 第四步: 安装常用开发应用(Cask)..."
+echo -e "   - 安装 Clash Verge..."
+brew install --cask clash-verge-rev || true
 echo -e "   - 安装 Chrome..."
 brew install --cask google-chrome || true
 echo -e "   - 安装 飞书..."
@@ -67,7 +72,7 @@ echo "✅ 开发应用(Cask)安装完成"
 
 
 # 6. 深度清理 Homebrew 缓存
-echo -e "\n🧹 第六步: 深度清理 Homebrew 缓存..."
+echo -e "\n🧹 第五步: 深度清理 Homebrew 缓存..."
 brew cleanup
 brew cleanup -s
 echo "✅ Homebrew 缓存深度清理完成"
@@ -82,10 +87,19 @@ echo -e "✅ Homebrew 环境初始化完成"
 echo -e "======================================================================\n"
 
 
+# 8. 安装 OpenClaw
+echo -e "\n🧹 第八步: 安装 OpenClaw..."
+echo -e "\n 安装 node@22..."
+fnm install 22
+echo -e "\n 设置 node@22 为默认 node 版本"
+fnm default 22
+echo -e "\n 通过 npm 安装 OpenClaw..."
+npm install -g openclaw@latest --progress=true --verbose
+echo "✅ OpenClaw 安装完成"
+
+
 
 # Oh My Zsh
 echo -e "\n📥 第八步: 安装 Oh My Zsh..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-
 
