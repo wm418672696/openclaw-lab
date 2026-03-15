@@ -83,10 +83,10 @@ echo "✅ Homebrew 缓存初步清理完成"
 
 # 4. 安装常用开发工具(Formula)
 echo -e "\n📥 第四步: 安装常用开发工具(Formula)..."
-# echo -e "   - 安装 fnm..."
-# brew install fnm || true
-# echo -e "\n🔧 配置 fnm 环境变量..."
-# echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshrc
+echo -e "   - 安装 fnm..."
+brew install fnm || true
+echo -e "\n🔧 配置 fnm 环境变量..."
+echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshrc
 echo "✅ 开发工具(Formula)安装完成"
 # 配置 fnm 环境变量. 
 
@@ -124,14 +124,14 @@ echo -e "======================================================================\
 
 
 # 8. 安装 OpenClaw
-# echo -e "\n🧹 第八步: 安装 OpenClaw..."
-# echo -e "\n 安装 node@22..."
-# fnm install 22
-# echo -e "\n 设置 node@22 为默认 node 版本"
-# fnm default 22
-# echo -e "\n 通过 npm 安装 OpenClaw..."
-# npm install -g openclaw@latest --progress=true --verbose
-# echo "✅ OpenClaw 安装完成"
+echo -e "\n🧹 第八步: 安装 OpenClaw..."
+echo -e "\n 安装 node@22..."
+fnm install 22
+echo -e "\n 设置 node@22 为默认 node 版本"
+fnm default 22
+echo -e "\n 通过 npm 安装 OpenClaw..."
+npm install -g openclaw@latest --progress=true --verbose
+echo "✅ OpenClaw 安装完成"
 
 
 
